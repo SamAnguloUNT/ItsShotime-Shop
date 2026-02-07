@@ -1043,6 +1043,10 @@
             productGrid.innerHTML = products.map(product => `
                 <div class="product-card">
                     <div class="product-image">
+                        ${product.image.startsWith('images/') 
+                         ? `<img src="${product.image}" alt="${product.title}">` 
+                          : `<span class="tshirt-placeholder">${product.image}</span>`
+                            }
                         <span class="tshirt-placeholder">${product.image}</span>
                     </div>
                     <div class="product-info">
