@@ -987,9 +987,9 @@
         const products = [
             {
                 id: 1,
-                title: 'Bad Bunny El Halftime Loteria T-Shirt',
+                title: 'Classic Logo Tee',
                 sizes: 'S, M, L, XL, XXL',
-                price: 25.00,
+                price: 29.99,
                 image: 'images/BadBunny.jpg',
                 description: 'Premium cotton tee with signature logo design'
             },
@@ -1044,10 +1044,9 @@
                 <div class="product-card">
                     <div class="product-image">
                         ${product.image.startsWith('images/') 
-                         ? `<img src="${product.image}" alt="${product.title}">` 
-                          : `<span class="tshirt-placeholder">${product.image}</span>`
-                            }
-                        <span class="tshirt-placeholder">${product.image}</span>
+                            ? `<img src="${product.image}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: cover;">` 
+                            : `<span class="tshirt-placeholder">${product.image}</span>`
+                        }
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">${product.title}</h3>
@@ -1109,7 +1108,10 @@
                 cartItems.innerHTML = cart.map(item => `
                     <div class="cart-item">
                         <div class="cart-item-image">
-                            <span style="font-size: 2rem;">${item.image}</span>
+                            ${item.image.startsWith('images/') 
+                                ? `<img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;">` 
+                                : `<span style="font-size: 2rem;">${item.image}</span>`
+                            }
                         </div>
                         <div class="cart-item-info">
                             <div class="cart-item-title">${item.title}</div>
