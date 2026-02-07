@@ -470,13 +470,9 @@
 
         .about-image {
             width: 100%;
-            aspect-ratio: 1;
-            background: var(--white);
-            border: 3px solid var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
+            height: auto;
+            max-width: 500px;  /* Makes it much larger! */
+            object-fit: contain;
         }
 
         /* Contact Section */
@@ -848,7 +844,7 @@
     <header>
         <nav>
             <a href="#home" class="logo">
-                <img src="images/logo.webp" alt="ItsShotime Logo">
+                <img src="images/Logo.jpg" alt="ItsShotime Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
