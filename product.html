@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - ItsShotime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-mid: #CCCCCC;
+            --gray-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header - Same as shop.html */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 3px solid var(--black);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Product Detail Section */
+        .product-detail {
+            margin-top: 100px;
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--gray-dark);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        /* Image Gallery */
+        .product-gallery {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 3px solid var(--black);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background: var(--gray-light);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1;
+            border: 2px solid var(--gray-mid);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--black);
+            border-width: 3px;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Info */
+        .product-info-section {
+            padding: 1rem 0;
+        }
+
+        .product-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--black);
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--gray-dark);
+        }
+
+        /* Color Selection */
+        .color-selection {
+            margin-bottom: 2rem;
+        }
+
+        .color-selection h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .color-option {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--gray-mid);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .color-option:hover,
+        .color-option.active {
+            border-color: var(--black);
+            transform: scale(1.1);
+        }
+
+        .color-option.active::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+        }
+
+        .color-name {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            text-align: center;
+            color: var(--gray-dark);
+        }
+
+        /* Size Selection */
+        .size-selection {
+            margin-bottom: 2rem;
+        }
+
+        .size-selection h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .size-option {
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--black);
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .size-option:hover,
+        .size-option.active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .size-option.out-of-stock {
+            opacity: 0.3;
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .size-option.out-of-stock::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--black);
+            transform: translateY(-50%) rotate(-15deg);
+        }
+
+        /* Quantity */
+        .quantity-selection {
+            margin-bottom: 2rem;
+        }
+
+        .quantity-selection h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            width: fit-content;
+            border: 2px solid var(--black);
+        }
+
+        .quantity-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border: none;
+            border-right: 2px solid var(--black);
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        .quantity-btn:last-child {
+            border-right: none;
+            border-left: 2px solid var(--black);
+        }
+
+        .quantity-btn:hover {
+            background: var(--gray-light);
+        }
+
+        .quantity-display {
+            width: 80px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--black);
+            color: var(--white);
+            border: 3px solid var(--black);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .add-to-cart-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Product Details */
+        .product-details {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 3px solid var(--black);
+        }
+
+        .detail-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item p {
+            color: var(--gray-dark);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 5%;
+            border-top: 3px solid var(--black);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-gallery {
+                position: relative;
+                top: 0;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.webp" alt="ItsShotime Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="cart-icon" onclick="window.location.href='index.html#cart'">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span id="breadcrumbProduct">Product</span>
+        </div>
+
+        <div class="product-container">
+            <!-- Image Gallery -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img id="mainImage" src="" alt="">
+                </div>
+                <div class="thumbnail-grid" id="thumbnailGrid">
+                    <!-- Thumbnails loaded by JS -->
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info-section">
+                <h1 class="product-title" id="productTitle"></h1>
+                <div class="product-price" id="productPrice"></div>
+                <p class="product-description" id="productDescription"></p>
+
+                <!-- Color Selection -->
+                <div class="color-selection" id="colorSelection" style="display: none;">
+                    <h3>Color</h3>
+                    <div class="color-options" id="colorOptions"></div>
+                </div>
+
+                <!-- Size Selection -->
+                <div class="size-selection">
+                    <h3>Size</h3>
+                    <div class="size-options" id="sizeOptions"></div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="quantity-selection">
+                    <h3>Quantity</h3>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="changeQuantity(-1)">−</button>
+                        <div class="quantity-display" id="quantity">1</div>
+                        <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Add to Cart -->
+                <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+
+                <!-- Product Details -->
+                <div class="product-details">
+                    <div class="detail-item">
+                        <h4>Material</h4>
+                        <p>100% premium cotton</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Care Instructions</h4>
+                        <p>Machine wash cold, tumble dry low. Do not bleach.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Shipping</h4>
+                        <p>Free shipping on orders over $50. Standard delivery 3-5 business days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 ItsShotime. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="products-data.js"></script>
+    <script>
+        let currentProduct = null;
+        let selectedColor = null;
+        let selectedSize = null;
+        let quantity = 1;
+
+        // Get product ID from URL
+        function getProductId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id'));
+        }
+
+        // Load product data
+        function loadProduct() {
+            const productId = getProductId();
+            currentProduct = products.find(p => p.id === productId);
+
+            if (!currentProduct) {
+                window.location.href = 'shop.html';
+                return;
+            }
+
+            // Set page title and breadcrumb
+            document.title = `${currentProduct.title} - ItsShotime`;
+            document.getElementById('breadcrumbProduct').textContent = currentProduct.title;
+
+            // Load product info
+            document.getElementById('productTitle').textContent = currentProduct.title;
+            document.getElementById('productPrice').textContent = `$${currentProduct.price.toFixed(2)}`;
+            document.getElementById('productDescription').textContent = currentProduct.description;
+
+            // Load images
+            loadImages();
+
+            // Load colors if available
+            if (currentProduct.colors && currentProduct.colors.length > 0) {
+                loadColors();
+            }
+
+            // Load sizes
+            loadSizes();
+        }
+
+        // Load product images
+        function loadImages() {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnailGrid = document.getElementById('thumbnailGrid');
+
+            mainImage.src = currentProduct.images[0];
+            mainImage.alt = currentProduct.title;
+
+            thumbnailGrid.innerHTML = currentProduct.images.map((img, index) => `
+                <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage('${img}', ${index})">
+                    <img src="${img}" alt="${currentProduct.title}">
+                </div>
+            `).join('');
+        }
+
+        // Change main image
+        function changeMainImage(imageSrc, index) {
+            document.getElementById('mainImage').src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        }
+
+        // Load color options
+        function loadColors() {
+            const colorSection = document.getElementById('colorSelection');
+            const colorOptions = document.getElementById('colorOptions');
+
+            colorSection.style.display = 'block';
+            selectedColor = currentProduct.colors[0]; // Default to first color
+
+            colorOptions.innerHTML = currentProduct.colors.map((color, index) => `
+                <div>
+                    <div class="color-option ${index === 0 ? 'active' : ''}" 
+                         style="background-color: ${color.hex}" 
+                         onclick="selectColor(${index})"
+                         title="${color.name}">
+                    </div>
+                    <span class="color-name">${color.name}</span>
+                </div>
+            `).join('');
+        }
+
+        // Select color
+        function selectColor(index) {
+            selectedColor = currentProduct.colors[index];
+            
+            document.querySelectorAll('.color-option').forEach((option, i) => {
+                option.classList.toggle('active', i === index);
+            });
+        }
+
+        // Load size options
+        function loadSizes() {
+            const sizeOptions = document.getElementById('sizeOptions');
+            selectedSize = currentProduct.sizes[0]; // Default to first size
+
+            sizeOptions.innerHTML = currentProduct.sizes.map((size, index) => `
+                <div class="size-option ${index === 0 ? 'active' : ''}" onclick="selectSize('${size}')">
+                    ${size}
+                </div>
+            `).join('');
+        }
+
+        // Select size
+        function selectSize(size) {
+            selectedSize = size;
+            
+            document.querySelectorAll('.size-option').forEach(option => {
+                option.classList.toggle('active', option.textContent.trim() === size);
+            });
+        }
+
+        // Change quantity
+        function changeQuantity(change) {
+            quantity = Math.max(1, quantity + change);
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        // Add to cart
+        function addToCart() {
+            if (!selectedSize) {
+                alert('Please select a size');
+                return;
+            }
+
+            const cartItem = {
+                product: currentProduct,
+                color: selectedColor,
+                size: selectedSize,
+                quantity: quantity
+            };
+
+            // Store in localStorage
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            // Check if item already exists
+            const existingIndex = cart.findIndex(item => 
+                item.product.id === currentProduct.id && 
+                item.size === selectedSize &&
+                (!selectedColor || item.color?.name === selectedColor.name)
+            );
+
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += quantity;
+            } else {
+                cart.push(cartItem);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Show confirmation
+            alert(`Added ${quantity} ${currentProduct.title} (Size: ${selectedSize}) to cart!`);
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        // Initialize
+        loadProduct();
+        updateCartCount();
+    </script>
+</body>
+</html>
