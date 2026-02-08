@@ -4,12 +4,14 @@
 const products = [
     {
         id: 1,
-        title: 'Bad Bunny El Halftime Loteria T-Shirt',
+        title: 'Black & White Vintage Mookie Betts T-Shirt',
         price: 25.00,
-        description: 'Premium cotton tee featuring the iconic Bad Bunny El Halftime Loteria design. High-quality screen print on soft, comfortable fabric.',
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        description: 'Premium cotton tee featuring the iconic Mookie Betts vintage design. High-quality screen print on soft, comfortable fabric.',
+        sizes: ['S', 'M', 'L', 'XL'],
         images: [
-            'images/BadBunny.jpg',
+            'images/Mookie.jpg',
+            'images/Mookie2.jpg',
+            'images/MookieSizeChart.jpg',
             // Add more images here:
             // 'images/BadBunny-back.jpg',
             // 'images/BadBunny-detail.jpg',
