@@ -11,54 +11,23 @@ const products = [
         images: [
             'images/Mookie.jpg',
             'images/Mookie2.jpg',
-            'images/MookieSizeChart.jpg',
-            // Add more images here:
-            // 'images/BadBunny-back.jpg',
-            // 'images/BadBunny-detail.jpg',
-            // 'images/BadBunny-lifestyle.jpg'
+            'images/MookieSizeChart.jpg'
         ],
-        colors: [
-            // Add color variations here:
-            // { name: 'Black', hex: '#000000' },
-            // { name: 'Navy', hex: '#001f3f' },
-            // { name: 'White', hex: '#FFFFFF' }
-        ]
+        colors: []
     },
-    // Example of how to add more products:
-    /*
+    // Add more products here like this:
     {
         id: 2,
-        title: 'Another Awesome T-Shirt',
-        price: 29.99,
-        description: 'Your product description here.',
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-        images: [
-            'images/shirt2-front.jpg',
-            'images/shirt2-back.jpg',
-            'images/shirt2-detail.jpg'
+        title: 'Black & White Vintage Shohei Ohtani T-Shirt',
+        price: 25.00,
+        description: 'Premium cotton tee featuring the iconic Shohei Ohtani vintage design. High-quality screen print on soft, comfortable fabric.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: ['images/product2.jpg',
+                 'images/shohei2.jpg',
+                 'images/shoheisize.jpg',
         ],
-        colors: [
-            { name: 'Black', hex: '#000000' },
-            { name: 'White', hex: '#FFFFFF' },
-            { name: 'Red', hex: '#FF0000' }
-        ]
-    },
-    {
-        id: 3,
-        title: 'Cool Design Tee',
-        price: 27.99,
-        description: 'Another great product description.',
-        sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-        images: [
-            'images/shirt3-main.jpg',
-            'images/shirt3-side.jpg'
-        ],
-        colors: [
-            { name: 'Navy', hex: '#001f3f' },
-            { name: 'Gray', hex: '#808080' }
-        ]
-    }
-    */
+       colors: []
+      }
 ];
 
 // Export for use in other files
