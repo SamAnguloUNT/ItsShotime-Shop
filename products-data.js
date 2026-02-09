@@ -22,7 +22,7 @@ const products = [
         price: 25.00,
         description: 'Premium cotton tee featuring the iconic Shohei Ohtani vintage design. High-quality screen print on soft, comfortable fabric.',
         sizes: ['S', 'M', 'L', 'XL'],
-        images: ['images/Shohei.jpg',
+        images: ['images/Mookie.jpg',
                  'images/shohei2.jpg',
                  'images/shoheisize.jpg',
         ],
