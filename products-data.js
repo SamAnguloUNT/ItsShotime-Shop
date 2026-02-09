@@ -15,19 +15,19 @@ const products = [
         ],
         colors: []
     },
-    // Add more products here like this:
     {
         id: 2,
         title: 'Black & White Vintage Shohei Ohtani T-Shirt',
         price: 25.00,
         description: 'Premium cotton tee featuring the iconic Shohei Ohtani vintage design. High-quality screen print on soft, comfortable fabric.',
         sizes: ['S', 'M', 'L', 'XL'],
-        images: ['images/Shohei.jpg',
-                 'images/shohei2.jpg',
-                 'images/shoheisize.jpg',
+        images: [
+            'images/Shohei.jpg',
+            'images/shohei2.jpg',
+            'images/shoheisize.jpg'
         ],
-       colors: []
-      }
+        colors: []
+    }
 ];
 
 // Export for use in other files
