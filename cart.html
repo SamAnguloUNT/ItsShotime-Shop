@@ -74,6 +74,22 @@
             letter-spacing: 1px;
         }
 
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--black);
+            color: var(--black);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
         .cart-section {
             margin-top: 100px;
             padding: 3rem 5%;
@@ -320,6 +336,28 @@
         }
 
         @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem 5%;
+                transition: right 0.4s ease;
+                border-top: 3px solid var(--black);
+                gap: 1.5rem;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
             .cart-container {
                 grid-template-columns: 1fr;
             }
@@ -361,6 +399,7 @@
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </nav>
     </header>
 
@@ -473,6 +512,10 @@
 
         function checkout() {
             alert('Checkout coming soon! Payment processing will be added next.');
+        }
+
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
         }
 
         loadCart();
