@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & FAQs - ItsShotime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-mid: #CCCCCC;
+            --gray-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 3px solid var(--black);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--black);
+            color: var(--black);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem 0.75rem;
+        }
+
+        /* Support Page */
+        .support-section {
+            margin-top: 100px;
+            padding: 3rem 5%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--black);
+            padding-bottom: 2rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            margin-bottom: 3rem;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .quick-link {
+            padding: 1.5rem;
+            border: 2px solid var(--black);
+            text-align: center;
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+
+        .quick-link:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Section Styles */
+        .info-section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            border: 3px solid var(--black);
+            scroll-margin-top: 100px;
+        }
+
+        .section-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-content h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .section-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* Size Chart Table */
+        .size-chart {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .size-chart th,
+        .size-chart td {
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid var(--black);
+        }
+
+        .size-chart th {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .size-chart tr:nth-child(even) {
+            background: var(--gray-light);
+        }
+
+        /* FAQ Items */
+        .faq-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer {
+            color: var(--gray-dark);
+            line-height: 1.8;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: var(--gray-light);
+            border: 3px solid var(--black);
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .contact-box p {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 3px solid var(--black);
+            transition: all 0.2s ease;
+        }
+
+        .contact-button:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 5%;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-mid);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--gray-dark);
+            color: var(--gray-mid);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem 5%;
+                transition: right 0.4s ease;
+                border-top: 3px solid var(--black);
+                gap: 1.5rem;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .size-chart {
+                font-size: 0.85rem;
+            }
+
+            .size-chart th,
+            .size-chart td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.webp" alt="ItsShotime Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="cart-count">0</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Support Section -->
+    <section class="support-section">
+        <h1 class="page-title">Support & FAQs</h1>
+        <p class="page-subtitle">Everything you need to know about ordering, shipping, and our products.</p>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <a href="#shipping" class="quick-link">📦 Shipping Info</a>
+            <a href="#returns" class="quick-link">↩️ Returns</a>
+            <a href="#faq" class="quick-link">❓ FAQs</a>
+            <a href="#size-guide" class="quick-link">📏 Size Guide</a>
+        </div>
+
+        <!-- Shipping Info -->
+        <div class="info-section" id="shipping">
+            <h2 class="section-title">📦 Shipping Information</h2>
+            <div class="section-content">
+                <h3>Domestic Shipping (United States)</h3>
+                <p><strong>Standard Shipping:</strong> 3-5 business days - $5.99</p>
+                <p><strong>FREE SHIPPING</strong> on all orders over $50!</p>
+
+                <h3>Processing Time</h3>
+                <p>All orders are processed within 1-2 business days. Orders placed on weekends or holidays will be processed the next business day.</p>
+
+                <h3>Tracking Your Order</h3>
+                <p>Once your order ships, you'll receive a confirmation email with your tracking number. You can track your package directly through the carrier's website.</p>
+
+                <h3>International Shipping</h3>
+                <p>Currently, we only ship within the United States. International shipping coming soon!</p>
+            </div>
+        </div>
+
+        <!-- Returns -->
+        <div class="info-section" id="returns">
+            <h2 class="section-title">↩️ Returns & Exchanges</h2>
+            <div class="section-content">
+                <h3>Our Return Policy</h3>
+                <p>We want you to love your ItsShotime gear! If you're not completely satisfied, you can return unworn, unwashed items within 30 days of delivery.</p>
+
+                <h3>How to Return</h3>
+                <ul>
+                    <li>Contact us through our contact form with your order number</li>
+                    <li>We'll send you return instructions and a prepaid shipping label</li>
+                    <li>Pack the item securely in original packaging (if possible)</li>
+                    <li>Ship it back using the provided label</li>
+                    <li>Refunds are processed within 5-7 business days of receiving the return</li>
+                </ul>
+
+                <h3>Exchange Policy</h3>
+                <p>Need a different size? We're happy to help! Contact us and we'll guide you through the exchange process. Exchanges are free - we'll cover the shipping!</p>
+
+                <h3>Non-Returnable Items</h3>
+                <ul>
+                    <li>Items worn or washed</li>
+                    <li>Items without original tags</li>
+                    <li>Sale or clearance items (final sale)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="info-section" id="faq">
+            <h2 class="section-title">❓ Frequently Asked Questions</h2>
+            <div class="section-content">
+                <div class="faq-item">
+                    <div class="faq-question">What materials are your t-shirts made from?</div>
+                    <div class="faq-answer">All our graphic tees are made from 100% premium cotton for maximum comfort and durability. The fabric is pre-shrunk and designed to maintain its shape and color after multiple washes.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I care for my ItsShotime t-shirt?</div>
+                    <div class="faq-answer">For best results: Machine wash cold with like colors, tumble dry low, and avoid bleach. Turn inside out before washing to protect the print. Do not iron directly on the design.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What if my size is out of stock?</div>
+                    <div class="faq-answer">We restock popular items regularly! Contact us and we can notify you when your size is back in stock. You can also check back on our shop page - we update inventory frequently.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer gift cards?</div>
+                    <div class="faq-answer">Not yet, but this feature is coming soon! For now, if you'd like to purchase a gift, we recommend choosing a size based on our size guide below.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I cancel or modify my order?</div>
+                    <div class="faq-answer">We process orders quickly! If you need to cancel or modify your order, contact us immediately. We'll do our best to help, but once an order has shipped, we can only process returns or exchanges.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Are your designs screen printed or heat transfer?</div>
+                    <div class="faq-answer">All our designs are high-quality screen prints, not heat transfers. This ensures vibrant colors that last and won't peel or crack over time.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you have a physical store?</div>
+                    <div class="faq-answer">We're currently online only, which allows us to keep our prices low and reach customers everywhere. Follow us on social media for pop-up shop announcements!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Size Guide -->
+        <div class="info-section" id="size-guide">
+            <h2 class="section-title">📏 Size Guide</h2>
+            <div class="section-content">
+                <h3>Men's T-Shirt Sizing</h3>
+                <p>All measurements are in inches. Measurements are taken laying flat.</p>
+                
+                <table class="size-chart">
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Chest Width</th>
+                            <th>Body Length</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>S</strong></td>
+                            <td>18.5"</td>
+                            <td>26.6"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M</strong></td>
+                            <td>20.5"</td>
+                            <td>28.0"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L</strong></td>
+                            <td>22.5"</td>
+                            <td>29.4"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>XL</strong></td>
+                            <td>24.5"</td>
+                            <td>30.75"</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Fit Description</h3>
+                <p><strong>A relaxed, classic-fit tee with a slightly boxy shape.</strong> Comfortable and roomy without feeling oversized. Size up for a looser look.</p>
+
+                <h3>How to Measure</h3>
+                <ul>
+                    <li><strong>Chest Width:</strong> Measure across the chest from armpit to armpit</li>
+                    <li><strong>Body Length:</strong> Measure from the highest point of the shoulder to the bottom hem</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact Box -->
+        <div class="contact-box">
+            <h3>Still Have Questions?</h3>
+            <p>We're here to help! Reach out and we'll get back to you within 24 hours.</p>
+            <a href="index.html#contact" class="contact-button">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/logo.webp" alt="ItsShotime" style="height: 60px; margin-bottom: 1rem;">
+                <p>Premium graphic tees</p>
+                <p>for those who dare to stand out</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="support.html#shipping">Shipping Info</a>
+                <a href="support.html#returns">Returns</a>
+                <a href="support.html#faq">FAQ</a>
+                <a href="support.html#size-guide">Size Guide</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ItsShotime. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        updateCartCount();
+    </script>
+</body>
+</html>
