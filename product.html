@@ -158,7 +158,8 @@
             background: var(--gray-light);
         }
 
-        .main-image img {
+        .main-image img,
+        .main-image video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -176,6 +177,7 @@
             cursor: pointer;
             overflow: hidden;
             transition: all 0.2s ease;
+            position: relative;
         }
 
         .thumbnail:hover,
@@ -719,24 +721,49 @@
             loadSizes();
         }
 
-        // Load product images
+        // Load product images and videos
         function loadImages() {
-            const mainImage = document.getElementById('mainImage');
+            const mainImageContainer = document.getElementById('mainImage');
             const thumbnailGrid = document.getElementById('thumbnailGrid');
 
-            mainImage.src = currentProduct.images[0];
-            mainImage.alt = currentProduct.title;
+            // Load first media item (image or video)
+            loadMainMedia(currentProduct.images[0]);
 
-            thumbnailGrid.innerHTML = currentProduct.images.map((img, index) => `
-                <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage('${img}', ${index})">
-                    <img src="${img}" alt="${currentProduct.title}">
-                </div>
-            `).join('');
+            // Create thumbnails for all media
+            thumbnailGrid.innerHTML = currentProduct.images.map((media, index) => {
+                const isVideo = media.toLowerCase().endsWith('.mp4');
+                return `
+                    <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage('${media}', ${index})">
+                        ${isVideo 
+                            ? `<video src="${media}" muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+                               <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem;">▶</div>`
+                            : `<img src="${media}" alt="${currentProduct.title}" style="width: 100%; height: 100%; object-fit: cover;">`
+                        }
+                    </div>
+                `;
+            }).join('');
         }
 
-        // Change main image
-        function changeMainImage(imageSrc, index) {
-            document.getElementById('mainImage').src = imageSrc;
+        // Load main media (image or video)
+        function loadMainMedia(mediaSrc) {
+            const mainImageContainer = document.getElementById('mainImage');
+            const isVideo = mediaSrc.toLowerCase().endsWith('.mp4');
+
+            if (isVideo) {
+                mainImageContainer.innerHTML = `
+                    <video controls autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="${mediaSrc}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+            } else {
+                mainImageContainer.innerHTML = `<img src="${mediaSrc}" alt="${currentProduct.title}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            }
+        }
+
+        // Change main image or video
+        function changeMainImage(mediaSrc, index) {
+            loadMainMedia(mediaSrc);
             
             // Update active thumbnail
             document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
