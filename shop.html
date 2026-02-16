@@ -477,10 +477,18 @@
 
     <script src="products-data.js"></script>
     <script>
-        // Load products from data file
+        let displayedProducts = [...products]; // Copy of products to filter/sort
+
+        // Load and display products
         function loadProducts() {
             const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = products.map(product => `
+            
+            if (displayedProducts.length === 0) {
+                productGrid.innerHTML = '<p style="text-align: center; padding: 3rem; grid-column: 1/-1;">No products match your filters. Try different options!</p>';
+                return;
+            }
+            
+            productGrid.innerHTML = displayedProducts.map(product => `
                 <a href="product.html?id=${product.id}" class="product-card">
                     <div class="product-image">
                         <img src="${product.images[0]}" alt="${product.title}">
@@ -502,25 +510,47 @@
             `).join('');
         }
 
-        function sortProducts(sortBy) {
-            let sorted = [...products];
+        // Apply filters and sorting
+        function filterProducts() {
+            const sizeFilter = document.getElementById('size').value;
+            const sortBy = document.getElementById('sort').value;
             
+            // Start with all products
+            let filtered = [...products];
+            
+            // Apply size filter
+            if (sizeFilter !== 'all') {
+                filtered = filtered.filter(product => 
+                    product.sizes.includes(sizeFilter)
+                );
+            }
+            
+            // Apply sorting
             switch(sortBy) {
                 case 'price-low':
-                    sorted.sort((a, b) => a.price - b.price);
+                    filtered.sort((a, b) => a.price - b.price);
                     break;
                 case 'price-high':
-                    sorted.sort((a, b) => b.price - a.price);
+                    filtered.sort((a, b) => b.price - a.price);
                     break;
                 case 'newest':
-                    sorted.reverse();
+                    filtered.reverse(); // Newest = reverse order (assumes higher ID = newer)
+                    break;
+                case 'featured':
+                    // Keep original order
                     break;
             }
             
-            products = sorted;
+            displayedProducts = filtered;
             loadProducts();
         }
 
+        // Sort products (called by sort dropdown)
+        function sortProducts(sortBy) {
+            filterProducts(); // Just call the main filter function
+        }
+
+        // Toggle mobile menu
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
         }
