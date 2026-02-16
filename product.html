@@ -178,6 +178,7 @@
             overflow: hidden;
             transition: all 0.2s ease;
             position: relative;
+            background: var(--gray-light);
         }
 
         .thumbnail:hover,
@@ -186,7 +187,8 @@
             border-width: 3px;
         }
 
-        .thumbnail img {
+        .thumbnail img,
+        .thumbnail video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -735,8 +737,12 @@
                 return `
                     <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage('${media}', ${index})">
                         ${isVideo 
-                            ? `<video src="${media}" muted style="width: 100%; height: 100%; object-fit: cover;"></video>
-                               <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem; pointer-events: none;">▶</div>`
+                            ? `<video src="${media}" muted preload="metadata" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                               <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); pointer-events: none;">
+                                   <div style="width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                       <div style="width: 0; height: 0; border-left: 12px solid black; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px;"></div>
+                                   </div>
+                               </div>`
                             : `<img src="${media}" alt="${currentProduct.title}" style="width: 100%; height: 100%; object-fit: cover;">`
                         }
                     </div>
