@@ -189,6 +189,19 @@ const products = [
             'images/SIZE CHART ANT.png'
         ],
         colors: []
+    },
+    {
+        id: 15,
+        title: 'Victor Wembanyama Superstar Graphic T-Shirt Vintage Basketball Comic',
+        price: 25.00,
+        description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring a vintage-inspired comic-style graphic of Victor Wembanyama. Printed to order with high-quality, long-lasting detail for crisp visuals and a timeless basketball look. Built for everyday wear with dependable durability, all-day comfort, and a clean, classic style for true basketball fans.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/WembyTee copy.png',
+            'images/WembyTee Concrete.png',
+            'images/SIZE CHART Wemby.png'
+        ],
+        colors: []
     }
     
 ];
