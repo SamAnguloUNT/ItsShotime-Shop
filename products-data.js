@@ -10,6 +10,7 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/Mookie.jpg',
+            'images/mookie.mp4',
             'images/Mookie2.jpg',
             'images/MookieSizeChart.jpg'
         ],
