@@ -597,8 +597,8 @@
         <div class="product-container">
             <!-- Image Gallery -->
             <div class="product-gallery">
-                <div class="main-image">
-                    <img id="mainImage" src="" alt="">
+                <div class="main-image" id="mainImageContainer">
+                    <!-- Image or video loaded by JS -->
                 </div>
                 <div class="thumbnail-grid" id="thumbnailGrid">
                     <!-- Thumbnails loaded by JS -->
@@ -723,7 +723,7 @@
 
         // Load product images and videos
         function loadImages() {
-            const mainImageContainer = document.getElementById('mainImage');
+            const mainImageContainer = document.getElementById('mainImageContainer');
             const thumbnailGrid = document.getElementById('thumbnailGrid');
 
             // Load first media item (image or video)
@@ -736,7 +736,7 @@
                     <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage('${media}', ${index})">
                         ${isVideo 
                             ? `<video src="${media}" muted style="width: 100%; height: 100%; object-fit: cover;"></video>
-                               <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem;">▶</div>`
+                               <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem; pointer-events: none;">▶</div>`
                             : `<img src="${media}" alt="${currentProduct.title}" style="width: 100%; height: 100%; object-fit: cover;">`
                         }
                     </div>
@@ -746,7 +746,7 @@
 
         // Load main media (image or video)
         function loadMainMedia(mediaSrc) {
-            const mainImageContainer = document.getElementById('mainImage');
+            const mainImageContainer = document.getElementById('mainImageContainer');
             const isVideo = mediaSrc.toLowerCase().endsWith('.mp4');
 
             if (isVideo) {
@@ -770,6 +770,12 @@
                 thumb.classList.toggle('active', i === index);
             });
         }
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        
 
         // Load color options
         function loadColors() {
