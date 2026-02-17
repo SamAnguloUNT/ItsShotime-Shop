@@ -68,6 +68,7 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/Shohei.jpg',
+            'images/Ohtani Vid.mp4',
             'images/shohei2.jpg',
             'images/shoheisize.jpg'
         ],
@@ -94,6 +95,7 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/Cowboys WhBg.png',
+            'images/cowboys.mp4',
             'images/BCowboys GrBg.png',
             'images/SIZE CHART Cowboys copy.png'
         ],
