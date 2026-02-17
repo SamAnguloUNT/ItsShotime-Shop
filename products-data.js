@@ -119,7 +119,7 @@ const products = [
         description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring a vintage-inspired graphic of Jaxon Smith-Njigba. Printed to order with high-quality, long-lasting detail for crisp visuals and a timeless football look. Built for everyday wear with dependable durability, all-day comfort, and a clean, classic style for true football fans.',
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
-            'images/JSNTee.png',
+            'images/JSNTee copy.png',
             'images/JSNTee Concrete.png',
             'images/SIZE CHART JSN.png'
         ],
