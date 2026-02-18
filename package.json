@@ -1,0 +1,8 @@
+{
+  "name": "itsshotime-website",
+  "version": "1.0.0",
+  "description": "ItsShotime e-commerce website",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
