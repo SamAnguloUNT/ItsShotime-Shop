@@ -985,7 +985,11 @@
             }
             
             // Show only first 2 products on homepage as featured
-            const featuredProducts = products.slice(0, 2);
+            const featuredIds = [11, 6, 12]; // <--- change these to the IDs you want
+
+            const featuredProducts = products.filter(product =>
+            featuredIds.includes(product.id)
+            );
             
             productGrid.innerHTML = featuredProducts.map(product => `
                 <a href="product.html?id=${product.id}" class="product-card" style="text-decoration: none; color: inherit; cursor: pointer;">
@@ -1005,8 +1009,7 @@
                     </div>
                 </a>
             `).join('');
-        }
-
+            }
         // Toggle mobile menu
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
