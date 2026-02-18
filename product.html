@@ -613,6 +613,9 @@
                 <div class="product-price" id="productPrice"></div>
                 <p class="product-description" id="productDescription"></p>
 
+                <!-- Stock Warning (injected by JS) -->
+                <div id="stockWarning"></div>
+
                 <!-- Color Selection -->
                 <div class="color-selection" id="colorSelection" style="display: none;">
                     <h3>Color</h3>
@@ -711,6 +714,16 @@
             document.getElementById('productPrice').textContent = `$${currentProduct.price.toFixed(2)}`;
             document.getElementById('productDescription').textContent = currentProduct.description;
 
+            // Show stock warning if low
+            const stockWarning = document.getElementById('stockWarning');
+            if (currentProduct.stock && currentProduct.stock <= 5) {
+                stockWarning.innerHTML = `
+                    <div style="background: #FF4444; color: white; padding: 1rem; margin-bottom: 1.5rem; font-weight: 600; text-align: center; font-family: 'Archivo Black', sans-serif; letter-spacing: 0.5px;">
+                        ⚠️ ONLY ${currentProduct.stock} LEFT IN STOCK!
+                    </div>
+                `;
+            }
+
             // Load images
             loadImages();
 
@@ -776,12 +789,6 @@
                 thumb.classList.toggle('active', i === index);
             });
         }
-            
-            // Update active thumbnail
-            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
-                thumb.classList.toggle('active', i === index);
-            });
-        
 
         // Load color options
         function loadColors() {

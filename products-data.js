@@ -204,6 +204,36 @@ const products = [
             'images/SIZE CHART Wemby.png'
         ],
         colors: []
+    },
+    {
+        id: 16,
+        title: 'Super Bowl Bad Bunny Benito Bowl Graphic T-Shirt',
+        price: 15.00,
+        description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring a vintage-inspired graphic of Bad Bunny\'s Benito Bowl. Printed to order with high-quality, long-lasting detail for crisp visuals and a clean, timeless look. Built for everyday wear with dependable durability, all-day comfort, and classic style.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/BenitoBowlTee.png',
+            'images/BenitoBowlBack copy.png',
+            'images/BenitoBowlTee Concrete.png',
+            'images/BenitoBowlBack Concrete.png',
+            'images/SIZE CHART BenitoBowl.png'
+        ],
+        colors: [],
+        stock: 2
+    },
+    {
+        id: 17,
+        title: 'Going For 3! Dodgers Roster T-Shirt',
+        price: 20.00,
+        description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring a vintage-inspired graphic celebrating the Los Angeles Dodgers championship roster. Printed to order with high-quality, long-lasting detail for crisp visuals and a clean, timeless baseball look. Built for everyday wear with dependable durability, all-day comfort, and classic style.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/Names Tee copy.png',
+            'images/Names GrBg.png',
+            'images/SIZE CHART Names copy.png'
+        ],
+        colors: [],
+        stock: 1
     }
     
 ];
