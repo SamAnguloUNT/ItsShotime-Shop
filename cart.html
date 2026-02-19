@@ -658,6 +658,21 @@
             })
             .then(res => res.json())
             .then(session => {
+                // Save order details to localStorage before redirect
+                const orderSummary = {
+                    items: cart.map(item => ({
+                        title: item.product.title,
+                        size: item.size,
+                        color: item.color?.name,
+                        quantity: item.quantity,
+                        price: item.product.price
+                    })),
+                    subtotal: cart.reduce((sum, item) => sum + (item.product.price * item.quantity), 0),
+                    shipping: cart.reduce((sum, item) => sum + (item.product.price * item.quantity), 0) >= 50 ? 0 : 5.99,
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('lastOrder', JSON.stringify(orderSummary));
+                
                 // Redirect to Stripe Checkout
                 return stripe.redirectToCheckout({ sessionId: session.id });
             })
