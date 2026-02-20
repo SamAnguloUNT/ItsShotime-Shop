@@ -290,14 +290,33 @@
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('session_id');
         
-        // Display order ID
-        if (sessionId) {
-            // Show full session ID or truncated version
-            const displayId = sessionId.length > 30 ? sessionId.substring(0, 30) + '...' : sessionId;
-            document.getElementById('orderId').textContent = sessionId;
-        } else {
-            document.getElementById('orderId').textContent = 'Order confirmation sent to your email';
+        // Fetch payment intent ID from the session
+        async function loadOrderId() {
+            if (sessionId) {
+                try {
+                    // Call Netlify function to get payment intent ID
+                    const response = await fetch(`/.netlify/functions/get-session?session_id=${sessionId}`);
+                    const data = await response.json();
+                    
+                    if (data.payment_intent) {
+                        // Display the payment intent ID (the real order number!)
+                        document.getElementById('orderId').textContent = data.payment_intent;
+                    } else {
+                        // Fallback to session ID if something went wrong
+                        document.getElementById('orderId').textContent = sessionId;
+                    }
+                } catch (error) {
+                    console.error('Error fetching payment intent:', error);
+                    // Fallback to session ID
+                    document.getElementById('orderId').textContent = sessionId;
+                }
+            } else {
+                document.getElementById('orderId').textContent = 'Order confirmation sent to your email';
+            }
         }
+
+        // Load the order ID
+        loadOrderId();
 
         // Display order details
         if (lastOrder && lastOrder.items) {
