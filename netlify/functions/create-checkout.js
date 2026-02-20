@@ -18,7 +18,7 @@ exports.handler = async (event) => {
     }, 0);
 
     // Determine shipping cost ($5.99 if under $50, FREE if $50+)
-    const shippingCost = subtotal >= 50 ? 0 : 599; // 599 cents = $5.99
+    const shippingCost = subtotal >= 0 ? 0 : 599; // 599 cents = $5.99
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
