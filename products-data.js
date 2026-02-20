@@ -234,8 +234,21 @@ const products = [
         ],
         colors: [],
         stock: 1
+    },
+    {
+        id: 18,
+        title: 'Freddie Freeman Los Angeles Dodgers Graphic T-Shirt',
+        price: 25.00,
+        description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring a vintage-inspired graphic of Freddie Freeman of the Los Angeles Dodgers. Printed to order with high-quality, long-lasting detail for crisp visuals and a clean, timeless baseball look. Built for everyday wear with dependable durability, all-day comfort, and classic style.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/FreddieTee copy.png',
+            'images/FreddieTee Concrete.png',
+            'images/SIZE CHART Freddie.png'
+        ],
+        colors: [],
+        stock: 1
     }
-    
 ];
 
 // Export for use in other files

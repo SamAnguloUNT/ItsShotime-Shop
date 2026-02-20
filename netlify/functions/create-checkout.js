@@ -12,6 +12,14 @@ exports.handler = async (event) => {
   try {
     const { lineItems } = JSON.parse(event.body);
 
+    // Calculate subtotal to determine shipping
+    const subtotal = lineItems.reduce((sum, item) => {
+      return sum + (item.price_data.unit_amount * item.quantity / 100);
+    }, 0);
+
+    // Determine shipping cost ($5.99 if under $50, FREE if $50+)
+    const shippingCost = subtotal >= 50 ? 0 : 599; // 599 cents = $5.99
+
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -27,10 +35,10 @@ exports.handler = async (event) => {
           shipping_rate_data: {
             type: 'fixed_amount',
             fixed_amount: {
-              amount: 0,
+              amount: shippingCost,
               currency: 'usd',
             },
-            display_name: 'Free shipping',
+            display_name: shippingCost === 0 ? 'Free Shipping' : 'Standard Shipping',
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',

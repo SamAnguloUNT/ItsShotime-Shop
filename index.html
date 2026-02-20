@@ -905,7 +905,7 @@
     <section class="contact" id="contact">
         <div class="contact-wrapper">
             <h2>Get in Touch</h2>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpqjjzen" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -984,8 +984,8 @@
                 return;
             }
             
-            // Show only first 2 products on homepage as featured
-            const featuredIds = [11, 6, 12]; // <--- change these to the IDs you want
+            // Shows featured products on homepage
+            const featuredIds = [11, 6, 12, 2]; // <--- change these to the IDs you want
 
             const featuredProducts = products.filter(product =>
             featuredIds.includes(product.id)
