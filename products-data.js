@@ -246,8 +246,7 @@ const products = [
             'images/FreddieTee Concrete.png',
             'images/SIZE CHART Freddie.png'
         ],
-        colors: [],
-        stock: 1
+        colors: []
     }
 ];
 
