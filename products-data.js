@@ -4,17 +4,80 @@
 const products = [
     {
         id: 1,
-        title: 'Going For 3! Dodgers Roster T-Shirt',
-        price: 20.00,
-        description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring a vintage-inspired graphic celebrating the Los Angeles Dodgers championship roster. Printed to order with high-quality, long-lasting detail for crisp visuals and a clean, timeless baseball look. Built for everyday wear with dependable durability, all-day comfort, and classic style.',
+        title: 'Shotime Worldwide Bulldog Graphic T-Shirt',
+        price: 25.00,
+        description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring the iconic Shotime Worldwide Bulldog graphic. Printed to order with high-quality, long-lasting detail for everyday wear. Built for comfort, durability, and clean style.',
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
-            'images/Names Tee copy.png',
-            'images/Names GrBg.png',
-            'images/SIZE CHART Names copy.png'
+            'images/bulldogteefront.png',
+            'images/bulldogteeback.png'
         ],
-        colors: [],
-        stock: 1
+        colors: []
+    },
+    {
+        id: 2,
+        title: 'Shotime Worldwide Bulldog Mesh Jersey',
+        price: 25.00,
+        description: 'Lightweight mesh jersey with a relaxed, oversized fit featuring the iconic Shotime Worldwide Bulldog graphic. Breathable construction built for comfort and style, with high-quality long-lasting print detail. A versatile piece for everyday wear.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/bulldogjerseyfront.png',
+            'images/bulldogjerseyback.png'
+        ],
+        colors: []
+    },
+    {
+        id: 3,
+        title: 'Shotime 17 Camo Long Sleeve',
+        price: 25.00,
+        description: 'Bold all-over camo long sleeve featuring the Shotime 17 varsity graphic on the chest. A layered look with white thermal-style sleeves and a relaxed fit built for everyday comfort and standout style.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/camofront.png',
+            'images/camoback.png'
+        ],
+        colors: []
+    },
+    {
+        id: 4,
+        title: 'Shotime Basketball Court Flame Long Sleeve',
+        price: 25.00,
+        description: 'Premium heavyweight black tee layered over a cream thermal with flame graphics down both sleeves. Features a bold Shotime basketball court graphic on the chest. Built for everyday wear with dependable durability and a clean, eye-catching streetwear look.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/blacktopfront.png',
+            'images/blacktopback.png'
+        ],
+        colors: []
+    },
+    {
+        id: 5,
+        title: 'Shotime Worldwide 17 Graphic T-Shirt',
+        price: 25.00,
+        description: 'Premium heavyweight white graphic tee with a relaxed classic fit, featuring the Shotime Worldwide 17 collage design. Printed to order with high-quality, long-lasting detail. Built for comfort, durability, and clean everyday style.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/wwfront.png',
+            'images/wwback.png'
+        ],
+        colors: []
+    },
+    {
+        id: 6,
+        title: 'Shotime Athletic Dept. Shorts',
+        price: 30.00,
+        description: 'Premium heavyweight fleece shorts with a relaxed fit, elastic waistband, and drawstring. Features the Shotime Athletic Dept. graphic on the front leg and flame tribal graphics on both sides. Washed for a vintage feel — built for all-day comfort and clean streetwear style. Available in Black and Grey.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/shortsblackfront.png',
+            'images/shortsblackback.png',
+            'images/shortsgreyfront.png',
+            'images/shortsgreyback.png'
+        ],
+        colors: [
+            { name: 'Black', hex: '#1a1a1a' },
+            { name: 'Grey', hex: '#9e9e9e' }
+        ]
     }
 ];
 

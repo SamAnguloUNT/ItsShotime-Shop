@@ -44,12 +44,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
 
         nav {
@@ -73,13 +69,8 @@
             transition: transform 0.2s ease;
         }
 
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo:hover img {
-            transform: rotate(-5deg);
-        }
+        .logo:hover { transform: scale(1.05); }
+        .logo:hover img { transform: rotate(-5deg); }
 
         .nav-links {
             display: flex;
@@ -109,9 +100,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover::after { width: 100%; }
 
         .cart-icon {
             position: relative;
@@ -120,9 +109,7 @@
             transition: transform 0.2s ease;
         }
 
-        .cart-icon:hover {
-            transform: scale(1.1);
-        }
+        .cart-icon:hover { transform: scale(1.1); }
 
         .cart-count {
             position: absolute;
@@ -176,8 +163,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                repeating-linear-gradient(0deg, transparent, transparent 2px, var(--gray-light) 2px, var(--gray-light) 4px);
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--gray-light) 2px, var(--gray-light) 4px);
             opacity: 0.3;
             pointer-events: none;
         }
@@ -199,14 +185,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
@@ -254,13 +234,8 @@
             z-index: -1;
         }
 
-        .cta-button:hover::before {
-            left: 0;
-        }
-
-        .cta-button:hover {
-            color: var(--black);
-        }
+        .cta-button:hover::before { left: 0; }
+        .cta-button:hover { color: var(--black); }
 
         /* Products Section */
         .products {
@@ -305,7 +280,6 @@
             overflow: hidden;
             animation: fadeIn 0.5s ease-out both;
         }
-        
 
         .product-card:nth-child(1) { animation-delay: 0.1s; }
         .product-card:nth-child(2) { animation-delay: 0.15s; }
@@ -315,12 +289,8 @@
         .product-card:nth-child(6) { animation-delay: 0.35s; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .product-card::before {
@@ -335,9 +305,7 @@
             z-index: 1;
         }
 
-        .product-card:hover::before {
-            left: 100%;
-        }
+        .product-card:hover::before { left: 100%; }
 
         .product-card:hover {
             transform: scale(1.02);
@@ -363,9 +331,7 @@
             transition: transform 0.5s ease;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
+        .product-card:hover .product-image img { transform: scale(1.05); }
 
         .tshirt-placeholder {
             font-size: 8rem;
@@ -427,9 +393,7 @@
             transform: translateY(-2px);
         }
 
-        .add-to-cart:active {
-            transform: translateY(0);
-        }
+        .add-to-cart:active { transform: translateY(0); }
 
         /* About Section */
         .about {
@@ -466,12 +430,10 @@
         .about-image {
             width: 100%;
             aspect-ratio: 1;
-            background: var(--white);
-            border: 3px solid var(--white);
+            background: var(--black);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
             padding: 2rem;
         }
 
@@ -510,10 +472,7 @@
             border: 3px solid var(--black);
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
+        .form-group { display: flex; flex-direction: column; }
 
         .form-group label {
             margin-bottom: 0.5rem;
@@ -597,9 +556,20 @@
             transition: color 0.2s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--white);
+        .footer-section a:hover { color: var(--white); }
+
+        .social-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+        .social-link {
+            display: flex !important;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-mid);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .social-link:hover { color: var(--white); }
 
         .footer-bottom {
             text-align: center;
@@ -624,9 +594,7 @@
             overflow-y: auto;
         }
 
-        .cart-sidebar.active {
-            right: 0;
-        }
+        .cart-sidebar.active { right: 0; }
 
         .cart-header {
             display: flex;
@@ -658,13 +626,9 @@
             transition: background 0.2s ease;
         }
 
-        .close-cart:hover {
-            background: var(--gray-dark);
-        }
+        .close-cart:hover { background: var(--gray-dark); }
 
-        .cart-items {
-            margin-bottom: 2rem;
-        }
+        .cart-items { margin-bottom: 2rem; }
 
         .cart-item {
             display: flex;
@@ -684,9 +648,7 @@
             justify-content: center;
         }
 
-        .cart-item-info {
-            flex: 1;
-        }
+        .cart-item-info { flex: 1; }
 
         .cart-item-title {
             font-weight: 600;
@@ -701,10 +663,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .cart-item-price {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
+        .cart-item-price { font-weight: 600; font-size: 1.1rem; }
 
         .remove-item {
             background: none;
@@ -717,9 +676,7 @@
             margin-top: 0.5rem;
         }
 
-        .remove-item:hover {
-            color: var(--black);
-        }
+        .remove-item:hover { color: var(--black); }
 
         .cart-total {
             padding: 1.5rem 0;
@@ -807,13 +764,9 @@
                 gap: 1.5rem;
             }
 
-            .nav-links.active {
-                right: 0;
-            }
+            .nav-links.active { right: 0; }
 
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
 
             .about-content {
                 grid-template-columns: 1fr;
@@ -831,9 +784,7 @@
                 gap: 1.5rem;
             }
 
-            .contact-form {
-                padding: 2rem;
-            }
+            .contact-form { padding: 2rem; }
         }
     </style>
 </head>
@@ -842,7 +793,8 @@
     <header>
         <nav>
             <a href="#home" class="logo">
-                <img src="images/shotimelogo.png" alt="ItsShotime Logo">
+                <!-- Black logo for white header background -->
+                <img src="images/shotimeblacklogo.png" alt="ItsShotime Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -867,9 +819,10 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-logo">
-                <img src="images/shotimelogo.png" alt="ItsShotime">
+                <!-- Black logo on white hero background -->
+                <img src="images/shotimeblacklogo.png" alt="ItsShotime">
             </div>
-            <h1>GRAPHIC<br>TEES</h1>
+            <h1>SHOTIME<br>STORE</h1>
             <p>Bold designs. Premium quality. Made to stand out.</p>
             <a href="shop.html" class="cta-button">Shop Collection</a>
         </div>
@@ -879,10 +832,10 @@
     <section class="products" id="products">
         <div class="section-header">
             <h2>Latest Drops</h2>
-            <p>Premium graphic t-shirts designed with attitude</p>
+            <p>Premium apparel designed with attitude</p>
         </div>
         <div class="product-grid" id="productGrid">
-            <!-- Products will be loaded here -->
+            <!-- Products loaded dynamically -->
         </div>
     </section>
 
@@ -891,12 +844,13 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>About Shotime</h2>
-                <p>We create graphic tees that make a statement. Each design is carefully crafted to combine bold visuals with premium quality materials.</p>
-                <p>Our mission is simple: deliver unique, eye-catching apparel that lets you express yourself with confidence.</p>
-                <p>Every tee is printed on premium cotton using high-quality printing techniques to ensure durability and vibrant colors that last.</p>
+                <p>We create apparel that makes a statement. Each design is carefully crafted to combine bold visuals with premium quality materials.</p>
+                <p>Our mission is simple: deliver unique, eye-catching pieces that let you express yourself with confidence.</p>
+                <p>Every item is built for everyday wear — durable, comfortable, and designed to last.</p>
             </div>
             <div class="about-image">
-                <img src="images/shotimelogo.png" alt="ItsShotime Logo">
+                <!-- White logo on black About section -->
+                <img src="images/shotimewhitelogo.png" alt="ItsShotime Logo">
             </div>
         </div>
     </section>
@@ -932,8 +886,9 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <img src="images/logo.webp" alt="ItsShotime" style="height: 60px; margin-bottom: 1rem;">
-                <p>Premium graphic tees</p>
+                <!-- White logo on black footer -->
+                <img src="images/shotimewhitelogo.png" alt="ItsShotime" style="height: 60px; margin-bottom: 1rem;">
+                <p>Premium apparel</p>
                 <p>for those who dare to stand out</p>
             </div>
             <div class="footer-section">
@@ -969,33 +924,30 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 ItsShotime. All rights reserved.</p>
+            <p>&copy; 2025 ItsShotime. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="products-data.js"></script>
     <script>
-        // Load products from shared data file
         function loadProducts() {
             const productGrid = document.getElementById('productGrid');
-            
+
             if (!products || products.length === 0) {
                 productGrid.innerHTML = '<p style="text-align: center; padding: 2rem;">No products available yet. Check back soon!</p>';
                 return;
             }
-            
-            // Shows featured products on homepage
-            const featuredIds = [1]; // <--- change these to the IDs you want
 
-            const featuredProducts = products.filter(product =>
-            featuredIds.includes(product.id)
-            );
-            
+            // Featured product IDs to show on homepage — update as needed
+            const featuredIds = [1, 4, 5, 6];
+
+            const featuredProducts = products.filter(p => featuredIds.includes(p.id));
+
             productGrid.innerHTML = featuredProducts.map(product => `
                 <a href="product.html?id=${product.id}" class="product-card" style="text-decoration: none; color: inherit; cursor: pointer;">
                     <div class="product-image">
                         ${product.images && product.images.length > 0
-                            ? `<img src="${product.images[0]}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: cover;">` 
+                            ? `<img src="${product.images[0]}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: cover;">`
                             : `<span class="tshirt-placeholder">👕</span>`
                         }
                     </div>
@@ -1009,13 +961,12 @@
                     </div>
                 </a>
             `).join('');
-            }
-        // Toggle mobile menu
+        }
+
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
         }
 
-        // Handle contact form
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contactForm');
             const submitBtn = document.getElementById('submitBtn');
@@ -1024,30 +975,23 @@
             if (form) {
                 form.addEventListener('submit', async function(e) {
                     e.preventDefault();
-                    
-                    // Disable button and show loading
                     submitBtn.disabled = true;
                     submitBtn.textContent = 'Sending...';
                     formStatus.style.display = 'none';
 
                     try {
-                        // Submit to Formspree
                         const response = await fetch(form.action, {
                             method: 'POST',
                             body: new FormData(form),
-                            headers: {
-                                'Accept': 'application/json'
-                            }
+                            headers: { 'Accept': 'application/json' }
                         });
 
                         if (response.ok) {
-                            // Success
                             formStatus.innerHTML = '✓ Thank you! Your message has been sent. We\'ll get back to you soon!';
                             formStatus.style.display = 'block';
                             formStatus.style.color = '#28a745';
                             form.reset();
                         } else {
-                            // Error
                             formStatus.innerHTML = '✗ Oops! There was a problem. Please try again or email us directly.';
                             formStatus.style.display = 'block';
                             formStatus.style.color = '#dc3545';
@@ -1057,7 +1001,6 @@
                         formStatus.style.display = 'block';
                         formStatus.style.color = '#dc3545';
                     } finally {
-                        // Re-enable button
                         submitBtn.disabled = false;
                         submitBtn.textContent = 'Send Message';
                     }
@@ -1065,68 +1008,24 @@
             }
         });
 
-        // Checkout with PayPal
-        function checkout() {
-            if (cart.length === 0) return;
-            
-            // Calculate total
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            // IMPORTANT: Replace 'YOUR_PAYPAL_EMAIL' with your cousin's actual PayPal email
-            const paypalEmail = 'YOUR_PAYPAL_EMAIL@example.com';
-            
-            // Create PayPal checkout URL
-            let paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=${encodeURIComponent(paypalEmail)}&upload=1`;
-            
-            // Add each item to PayPal
-            cart.forEach((item, index) => {
-                const itemNum = index + 1;
-                paypalUrl += `&item_name_${itemNum}=${encodeURIComponent(item.title + ' - Size: ' + item.selectedSize)}`;
-                paypalUrl += `&amount_${itemNum}=${item.price.toFixed(2)}`;
-                paypalUrl += `&quantity_${itemNum}=${item.quantity}`;
-            });
-            
-            // Add return URLs
-            paypalUrl += '&return=YOUR_SUCCESS_URL';
-            paypalUrl += '&cancel_return=YOUR_CANCEL_URL';
-            paypalUrl += '&currency_code=USD';
-            
-            // Open PayPal in new window
-            window.open(paypalUrl, '_blank');
-            
-            // Note: For production, you should implement PayPal's proper integration
-            // This is a simple implementation. Consider using PayPal's JavaScript SDK
-            // or their REST API for a more robust solution
-        }
-
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 80; // Header height
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                     document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });
 
-        // Update cart count on page load
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
             const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const cartCountElement = document.querySelector('.cart-count');
-            if (cartCountElement) {
-                cartCountElement.textContent = count;
-            }
+            const el = document.querySelector('.cart-count');
+            if (el) el.textContent = count;
         }
 
-        // Initialize
         loadProducts();
         updateCartCount();
     </script>
