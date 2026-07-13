@@ -4,9 +4,9 @@
 const products = [
     {
         id: 1,
-        title: 'Shotime Worldwide Bulldog Graphic T-Shirt',
+        title: 'VINTAGE BULLDOG TEE',
         price: 32.49,
-        description: 'Premium heavyweight graphic tee with a soft, comfortable feel and a relaxed classic fit, featuring the iconic Shotime Worldwide Bulldog graphic. Printed to order with high-quality, long-lasting detail for everyday wear. Built for comfort, durability, and clean style.',
+        description: 'A heavyweight 265 GSM tee made from 100% USA cotton, featuring a bold distressed bulldog graphic with vintage varsity detailing. Designed with a relaxed drop-shoulder fit for a premium oversized look.',
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/bulldogteefront.png',
@@ -16,9 +16,9 @@ const products = [
     },
     {
         id: 2,
-        title: 'Shotime Worldwide Bulldog Mesh Jersey',
+        title: 'VINTAGE BULLDOG MESH JERSEY',
         price: 42.49,
-        description: 'Lightweight mesh jersey with a relaxed, oversized fit featuring the iconic Shotime Worldwide Bulldog graphic. Breathable construction built for comfort and style, with high-quality long-lasting print detail. A versatile piece for everyday wear.',
+        description: 'A breathable long-sleeve mesh jersey featuring the distressed SHOTIME bulldog graphic and vintage varsity detailing. Designed with a boxy, cropped fit for a bold athletic look. ',
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/bulldogjerseyfront.png',
@@ -28,9 +28,9 @@ const products = [
     },
     {
         id: 3,
-        title: 'Shotime 17 Camo Long Sleeve',
+        title: 'HIDDEN SEASON DOUBLE-LAYER TEE',
         price: 42.49,
-        description: 'Bold all-over camo long sleeve featuring the Shotime 17 varsity graphic on the chest. A layered look with white thermal-style sleeves and a relaxed fit built for everyday comfort and standout style.',
+        description: 'A heavyweight 250 GSM, enzyme-washed cotton tee featuring a muted woodland camo body, stitched-in white sleeves, and distressed SHOTIME varsity graphics. Built for a relaxed layered look with premium structure and all-day comfort.',
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/camofront.png',
@@ -40,10 +40,10 @@ const products = [
     },
     {
         id: 4,
-        title: 'Shotime Basketball Court Flame Long Sleeve',
+        title: 'BLACKTOP CIRCUIT DOUBLE-LAYER TEE',
         price: 52.49,
-        description: 'Premium heavyweight black tee layered over a cream thermal with flame graphics down both sleeves. Features a bold Shotime basketball court graphic on the chest. Built for everyday wear with dependable durability and a clean, eye-catching streetwear look.',
-        sizes: ['S', 'M', 'L', 'XL'],
+        description: 'A 100% cotton double-layer tee featuring a flaming SHOTIME court graphic on the front and bold Blacktop Circuit tour artwork on the back. Finished with cream waffle-knit sleeves, a top-down sun-dried wash, and a relaxed drop-shoulder fit.',
+        sizes: ['S', 'L', 'XL'],
         images: [
             'images/blacktopfront.png',
             'images/blacktopback.png'
@@ -52,9 +52,9 @@ const products = [
     },
     {
         id: 5,
-        title: 'Shotime Worldwide 17 Graphic T-Shirt',
+        title: 'WORLDWIDE STATEMENT TEE',
         price: 32.49,
-        description: 'Premium heavyweight white graphic tee with a relaxed classic fit, featuring the Shotime Worldwide 17 collage design. Printed to order with high-quality, long-lasting detail. Built for comfort, durability, and clean everyday style.',
+        description: 'A heavyweight 265 GSM tee made from 100% USA cotton, featuring a loud black-and-white collage graphic that blends rebellious energy with global ambition. Built with a premium structured feel and oversized streetwear silhouette.',
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/wwfront.png',
@@ -64,10 +64,10 @@ const products = [
     },
     {
         id: 6,
-        title: 'Shotime Athletic Dept. Shorts',
+        title: 'ATHLETIC DEPT. FLAME SHORTS',
         price: 39.99,
-        description: 'Premium heavyweight fleece shorts with a relaxed fit, elastic waistband, and drawstring. Features the Shotime Athletic Dept. graphic on the front leg and flame tribal graphics on both sides. Washed for a vintage feel — built for all-day comfort and clean streetwear style. Available in Black and Grey.',
-        sizes: ['S', 'M', 'L', 'XL'],
+        description: 'Heavyweight 400 GSM cotton shorts with a baggy, oversized fit and sun-dried vintage wash. Finished with sharp flame graphics, SHOTIME Athletic Dept. detailing, and oversized cream drawstrings.',
+        sizes: ['S', 'L'],
         images: [
             'images/shortsblackfront.png',
             'images/shortsblackback.png',
@@ -78,6 +78,18 @@ const products = [
             { name: 'Black', hex: '#1a1a1a' },
             { name: 'Grey', hex: '#9e9e9e' }
         ]
+    },
+    {
+        id: 7,
+        title: 'BLACKTOP CIRCUIT TEE',
+        price: 37.49,
+        description: 'A 180 GSM vintage acid-wash cotton tee featuring a flaming SHOTIME court graphic on the front and bold Blacktop Circuit tour artwork on the back. Finished with a boxy, oversized drop-shoulder fit.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/blacktopfrontshortsleeve.png',
+            'images/blacktopbackshortsleeve.png'
+        ],
+        colors: []
     }
 ];
 

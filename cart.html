@@ -501,7 +501,7 @@
                 <a href="support.html#faq">FAQ</a>
                 <a href="support.html#size-guide">Size Guide</a>
             </div>
-        <div class="footer-section">
+            <div class="footer-section">
                 <h3>Follow Us!</h3>
                 <div class="social-links">
                     <a href="https://www.instagram.com/shotime.co" target="_blank" rel="noopener" class="social-link">
@@ -526,6 +526,14 @@
 
     <script src="products-data.js"></script>
     <script>
+        // --- Shipping config ---
+        const FREE_SHIPPING_THRESHOLD = 75;  // Free shipping on orders $75+
+        const SHIPPING_COST = 5.99;          // Flat rate below threshold
+
+        function getShipping(subtotal) {
+            return subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
+        }
+
         function loadCart() {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
             const cartContent = document.getElementById('cartContent');
@@ -543,7 +551,7 @@
             }
 
             const subtotal = cart.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
-            const shipping = subtotal >= 50 ? 0 : 5.99;
+            const shipping = getShipping(subtotal);
             const total = subtotal + shipping;
 
             cartContent.innerHTML = `
@@ -590,7 +598,7 @@
                             <span>Shipping</span>
                             <span>${shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2)}</span>
                         </div>
-                        ${shipping > 0 ? `<p style="font-size: 0.85rem; color: var(--gray-dark); margin-top: 0.5rem;">Free shipping on orders over $50!</p>` : ''}
+                        ${shipping > 0 ? `<p style="font-size: 0.85rem; color: var(--gray-dark); margin-top: 0.5rem;">Add $${(FREE_SHIPPING_THRESHOLD - subtotal).toFixed(2)} more for free shipping!</p>` : `<p style="font-size: 0.85rem; color: green; margin-top: 0.5rem;">🎉 You qualify for free shipping!</p>`}
                         <div class="summary-row total">
                             <span>Total</span>
                             <span>$${total.toFixed(2)}</span>
@@ -617,21 +625,24 @@
                 cart.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 loadCart();
+                updateCartCount();
             }
         }
 
         function checkout() {
-            // Initialize Stripe with your publishable key
-            const stripe = Stripe('pk_test_51T1sKYBr9aF1oG13mpiP2affWCR6HarJHVzuFGCzs5nJT08CHLA8CoqDZOI9EpBMjUSf073FoJSARONUrhzUr8Z000GNEiE20G');
-            
+            const stripe = Stripe('pk_live_51T1sKQPg6lIIktltfZyMbiJFndNAAW98dpEsbH9AaqjnraFdLB2eFCloB6TiR07tRXA8JiortSLCGKVrnbIKs6Ug00Z6FYKKGw');
+
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            
+
             if (cart.length === 0) {
                 alert('Your cart is empty!');
                 return;
             }
 
-            // Create line items for Stripe
+            const subtotal = cart.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
+            const shipping = getShipping(subtotal);
+
+            // Build product line items
             const lineItems = cart.map(item => ({
                 price_data: {
                     currency: 'usd',
@@ -639,10 +650,25 @@
                         name: item.product.title,
                         description: `Size: ${item.size}${item.color ? `, Color: ${item.color.name}` : ''}`,
                     },
-                    unit_amount: Math.round(item.product.price * 100) // Convert to cents
+                    unit_amount: Math.round(item.product.price * 100)
                 },
                 quantity: item.quantity
             }));
+
+            // Add shipping as a line item so Stripe charges it correctly
+            if (shipping > 0) {
+                lineItems.push({
+                    price_data: {
+                        currency: 'usd',
+                        product_data: {
+                            name: 'Shipping',
+                            description: 'Standard shipping'
+                        },
+                        unit_amount: Math.round(shipping * 100)
+                    },
+                    quantity: 1
+                });
+            }
 
             // Show loading state
             const checkoutBtn = document.querySelector('.checkout-btn');
@@ -658,7 +684,7 @@
             })
             .then(res => res.json())
             .then(session => {
-                // Save order details to localStorage before redirect
+                // Save order summary before redirect
                 const orderSummary = {
                     items: cart.map(item => ({
                         title: item.product.title,
@@ -667,13 +693,13 @@
                         quantity: item.quantity,
                         price: item.product.price
                     })),
-                    subtotal: cart.reduce((sum, item) => sum + (item.product.price * item.quantity), 0),
-                    shipping: cart.reduce((sum, item) => sum + (item.product.price * item.quantity), 0) >= 50 ? 0 : 5.99,
+                    subtotal,
+                    shipping,
+                    total: subtotal + shipping,
                     timestamp: new Date().toISOString()
                 };
                 localStorage.setItem('lastOrder', JSON.stringify(orderSummary));
-                
-                // Redirect to Stripe Checkout
+
                 return stripe.redirectToCheckout({ sessionId: session.id });
             })
             .catch(error => {
@@ -691,10 +717,8 @@
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
             const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const cartCountElement = document.querySelector('.cart-count');
-            if (cartCountElement) {
-                cartCountElement.textContent = count;
-            }
+            const el = document.querySelector('.cart-count');
+            if (el) el.textContent = count;
         }
 
         loadCart();
