@@ -16,11 +16,7 @@
             --gray-dark: #333333;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Work Sans', sans-serif;
@@ -30,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -50,27 +45,11 @@
             margin: 0 auto;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: transform 0.2s ease;
-        }
+        .logo { display: flex; align-items: center; text-decoration: none; transition: transform 0.2s ease; }
+        .logo img { height: 50px; width: auto; }
+        .logo:hover { transform: scale(1.05); }
 
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 3rem; list-style: none; }
 
         .nav-links a {
             color: var(--black);
@@ -94,15 +73,9 @@
         }
 
         .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
+        .nav-links a.active::after { width: 100%; }
 
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
+        .cart-icon { position: relative; cursor: pointer; padding: 0.5rem; }
 
         .cart-count {
             position: absolute;
@@ -130,7 +103,6 @@
             padding: 0.25rem 0.75rem;
         }
 
-        /* Shop Header */
         .shop-header {
             margin-top: 80px;
             padding: 4rem 5%;
@@ -146,12 +118,8 @@
             margin-bottom: 1rem;
         }
 
-        .shop-header p {
-            font-size: 1.1rem;
-            color: var(--gray-dark);
-        }
+        .shop-header p { font-size: 1.1rem; color: var(--gray-dark); }
 
-        /* Filter Section */
         .filters {
             padding: 2rem 5%;
             background: var(--gray-light);
@@ -167,11 +135,7 @@
             align-items: center;
         }
 
-        .filter-group {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        .filter-group { display: flex; align-items: center; gap: 1rem; }
 
         .filter-group label {
             font-weight: 600;
@@ -189,7 +153,13 @@
             cursor: pointer;
         }
 
-        /* Products Grid */
+        .results-count {
+            margin-left: auto;
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            font-weight: 600;
+        }
+
         .products-section {
             padding: 4rem 5%;
             max-width: 1400px;
@@ -233,9 +203,7 @@
             transition: transform 0.5s ease;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
+        .product-card:hover .product-image img { transform: scale(1.05); }
 
         .stock-badge {
             position: absolute;
@@ -248,20 +216,14 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.4);
+            box-shadow: 0 2px 8px rgba(255,68,68,0.4);
             animation: pulse 2s ease-in-out infinite;
             z-index: 10;
         }
 
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 2px 8px rgba(255, 68, 68, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 4px 12px rgba(255, 68, 68, 0.6);
-            }
+            0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,68,68,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 4px 12px rgba(255,68,68,0.6); }
         }
 
         .color-indicator {
@@ -280,9 +242,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .product-info {
-            padding: 1.5rem;
-        }
+        .product-info { padding: 1.5rem; }
 
         .product-title {
             font-family: 'Archivo Black', sans-serif;
@@ -309,7 +269,6 @@
             margin-top: 1rem;
         }
 
-        /* Footer */
         footer {
             background: var(--black);
             color: var(--white);
@@ -342,6 +301,21 @@
             display: block;
         }
 
+        .footer-section a:hover { color: var(--white); }
+
+        .social-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+        .social-link {
+            display: flex !important;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-mid);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .social-link:hover { color: var(--white); }
+
         .footer-bottom {
             text-align: center;
             margin-top: 3rem;
@@ -350,15 +324,9 @@
             color: var(--gray-mid);
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-content { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -373,29 +341,16 @@
                 transition: right 0.4s ease;
                 border-top: 3px solid var(--black);
                 gap: 1.5rem;
+                z-index: 999;
             }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .product-card {
-                max-width: 100%;
-            }
+            .nav-links.active { right: 0; }
+            .menu-toggle { display: block; }
+            .product-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .results-count { margin-left: 0; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <a href="index.html" class="logo">
@@ -403,7 +358,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="support.html">Support</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
@@ -419,18 +374,17 @@
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </nav>
     </header>
-    <!-- Shop Header -->
+
     <section class="shop-header">
         <h1>The Collection</h1>
         <p>Browse our complete collection of premium apparel</p>
     </section>
 
-    <!-- Filters -->
     <section class="filters">
         <div class="filters-container">
             <div class="filter-group">
                 <label for="sort">Sort By:</label>
-                <select id="sort" onchange="sortProducts(this.value)">
+                <select id="sort" onchange="filterProducts()">
                     <option value="featured">Featured</option>
                     <option value="price-low">Price: Low to High</option>
                     <option value="price-high">Price: High to Low</option>
@@ -439,7 +393,8 @@
             </div>
             <div class="filter-group">
                 <label for="size">Size:</label>
-                <select id="size">
+                <!-- onchange added here — this was the bug, it was missing -->
+                <select id="size" onchange="filterProducts()">
                     <option value="all">All Sizes</option>
                     <option value="S">Small</option>
                     <option value="M">Medium</option>
@@ -447,17 +402,14 @@
                     <option value="XL">X-Large</option>
                 </select>
             </div>
+            <span class="results-count" id="resultsCount"></span>
         </div>
     </section>
 
-    <!-- Products Grid -->
     <section class="products-section">
-        <div class="product-grid" id="productGrid">
-            <!-- Products will be loaded here -->
-        </div>
+        <div class="product-grid" id="productGrid"></div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -505,27 +457,58 @@
     <script src="products-data.js"></script>
     <script>
         // Auto-clean stale cart items
-    function cleanStaleCart() {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        const validIds = products.map(p => p.id);
-        const cleaned = cart.filter(item => validIds.includes(item.product.id));
-        if (cleaned.length !== cart.length) {
-            localStorage.setItem('cart', JSON.stringify(cleaned));
+        function cleanStaleCart() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const validIds = products.map(p => p.id);
+            const cleaned = cart.filter(item => validIds.includes(item.product.id));
+            if (cleaned.length !== cart.length) {
+                localStorage.setItem('cart', JSON.stringify(cleaned));
+            }
         }
-    }
-    cleanStaleCart();
-        let displayedProducts = [...products]; // Copy of products to filter/sort
+        cleanStaleCart();
 
-        // Load and display products
-        function loadProducts() {
+        function filterProducts() {
+            const sizeFilter = document.getElementById('size').value;
+            const sortBy = document.getElementById('sort').value;
+
+            // Filter by size — checks product.sizes array actually contains the selected size
+            let filtered = products.filter(product => {
+                if (sizeFilter === 'all') return true;
+                return product.sizes.includes(sizeFilter);
+            });
+
+            // Sort
+            switch (sortBy) {
+                case 'price-low':
+                    filtered.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filtered.sort((a, b) => b.price - a.price);
+                    break;
+                case 'newest':
+                    filtered = filtered.reverse();
+                    break;
+                case 'featured':
+                default:
+                    // Keep original order
+                    break;
+            }
+
+            renderProducts(filtered);
+        }
+
+        function renderProducts(list) {
             const productGrid = document.getElementById('productGrid');
-            
-            if (displayedProducts.length === 0) {
-                productGrid.innerHTML = '<p style="text-align: center; padding: 3rem; grid-column: 1/-1;">No products match your filters. Try different options!</p>';
+            const resultsCount = document.getElementById('resultsCount');
+
+            resultsCount.textContent = `${list.length} product${list.length !== 1 ? 's' : ''}`;
+
+            if (list.length === 0) {
+                productGrid.innerHTML = '<p style="text-align:center;padding:3rem;grid-column:1/-1;color:var(--gray-dark);">No products available in this size. Try a different size!</p>';
                 return;
             }
-            
-            productGrid.innerHTML = displayedProducts.map(product => `
+
+            productGrid.innerHTML = list.map(product => `
                 <a href="product.html?id=${product.id}" class="product-card">
                     <div class="product-image">
                         <img src="${product.images[0]}" alt="${product.title}">
@@ -534,10 +517,10 @@
                         ` : ''}
                         ${product.colors && product.colors.length > 1 ? `
                             <div class="color-indicator">
-                                ${product.colors.slice(0, 3).map(color => 
-                                    `<span class="color-dot" style="background-color: ${color.hex}"></span>`
+                                ${product.colors.slice(0, 3).map(c =>
+                                    `<span class="color-dot" style="background-color:${c.hex}"></span>`
                                 ).join('')}
-                                ${product.colors.length > 3 ? `<span class="color-dot" style="background: var(--gray-mid); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 600;">+${product.colors.length - 3}</span>` : ''}
+                                ${product.colors.length > 3 ? `<span class="color-dot" style="background:var(--gray-mid);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;color:#fff;">+${product.colors.length - 3}</span>` : ''}
                             </div>
                         ` : ''}
                     </div>
@@ -550,60 +533,18 @@
             `).join('');
         }
 
-        // Apply filters and sorting
-        function filterProducts() {
-            const sizeFilter = document.getElementById('size').value;
-            const sortBy = document.getElementById('sort').value;
-            
-            // Start with all products
-            let filtered = [...products];
-            
-            // Apply size filter
-            if (sizeFilter !== 'all') {
-                filtered = filtered.filter(product => 
-                    product.sizes.includes(sizeFilter)
-                );
-            }
-            
-            // Apply sorting
-            switch(sortBy) {
-                case 'price-low':
-                    filtered.sort((a, b) => a.price - b.price);
-                    break;
-                case 'price-high':
-                    filtered.sort((a, b) => b.price - a.price);
-                    break;
-                case 'newest':
-                    filtered.reverse(); // Newest = reverse order (assumes higher ID = newer)
-                    break;
-                case 'featured':
-                    // Keep original order
-                    break;
-            }
-            
-            displayedProducts = filtered;
-            loadProducts();
-        }
-
-        // Sort products (called by sort dropdown)
-        function sortProducts(sortBy) {
-            filterProducts(); // Just call the main filter function
-        }
-
-        // Toggle mobile menu
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
         }
 
-        // Update cart count
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
             const count = cart.reduce((sum, item) => sum + item.quantity, 0);
             document.querySelector('.cart-count').textContent = count;
         }
 
-        // Load products on page load
-        loadProducts();
+        // Initial load
+        filterProducts();
         updateCartCount();
     </script>
 </body>
