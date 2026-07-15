@@ -168,32 +168,32 @@
         /* ── Hero ── */
         .hero {
             margin-top: calc(36px + 74px);
+            height: calc(100vh - 36px - 74px);
             position: relative;
-            display: block;
+            display: flex;
+            align-items: flex-end;
             overflow: hidden;
         }
 
-        .hero-img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('images/Cover_Pic_1.png') center 85% / cover no-repeat;
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 28%, transparent 50%);
-            pointer-events: none;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.05) 100%);
         }
 
         .hero-content {
-            position: absolute;
-            bottom: 18%;
-            left: 6%;
+            position: relative;
             z-index: 2;
+            padding: 0 6% 5rem;
             color: var(--white);
             animation: fadeInUp 0.9s ease-out both;
-            max-width: 650px;
+            max-width: 700px;
         }
 
         .hero-eyebrow {
@@ -601,7 +601,7 @@
             .nav-links.active { right: 0; }
             .menu-toggle { display: block; }
 
-            /* hero is auto-height on mobile */
+            .hero { height: 80vh; }
 
             .product-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 
@@ -622,7 +622,7 @@
     <!-- Announcement Bar -->
     <div class="announcement-bar">
         <div class="announcement-track">
-            <div class="announcement-msg active">🚚 Free shipping on orders over $55</div>
+            <div class="announcement-msg active">🚚 Free shipping on orders over $75</div>
             <div class="announcement-msg">🔥 New drops just landed — Shop Now</div>
             <div class="announcement-msg">✅ Secure checkout powered by Stripe</div>
             <div class="announcement-msg">📦 All orders ship within 3–5 business days</div>
@@ -656,7 +656,7 @@
 
     <!-- Hero -->
     <section class="hero" id="home">
-        <img src="images/Cover_Pic_1.png" alt="Shotime Collection" class="hero-img">
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-eyebrow">Summer 2025</p>
@@ -691,7 +691,7 @@
     <section class="about" id="about">
         <div class="about-content">
             <div class="about-text">
-                <h2>About Shotime</h2>
+                <h2>About SHOTIME</h2>
                 <p>Founded in 2026, SHOTIME is an independent sports-inspired streetwear brand creating apparel with bold graphics and oversized fits.</p>
                 <p>Our mission is to blend sports culture with modern street style through quality pieces made for everyday wear.</p>
                 <p>Every piece is designed to make you feel confident, comfortable, and ready to stand out without trying too hard.</p>
