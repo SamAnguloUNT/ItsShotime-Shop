@@ -462,8 +462,8 @@
         <div class="footer-content">
             <div class="footer-section">
                 <img src="images/shotimewhitelogo.png" alt="ItsShotime" style="height: 60px; margin-bottom: 1rem;">
-                <p>Premium graphic apparel</p>
-                <p>for those who dare to stand out</p>
+                <p>Sports-inspired streetwear</p>
+                <p>made for everyday wear.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -498,12 +498,22 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 ItsShotime. All rights reserved.</p>
+            <p>&copy; 2026 SHOTIME. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="products-data.js"></script>
     <script>
+        // Auto-clean stale cart items
+    function cleanStaleCart() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const validIds = products.map(p => p.id);
+        const cleaned = cart.filter(item => validIds.includes(item.product.id));
+        if (cleaned.length !== cart.length) {
+            localStorage.setItem('cart', JSON.stringify(cleaned));
+        }
+    }
+    cleanStaleCart();
         let displayedProducts = [...products]; // Copy of products to filter/sort
 
         // Load and display products

@@ -64,20 +64,15 @@ const products = [
     },
     {
         id: 6,
-        title: 'ATHLETIC DEPT. FLAME SHORTS',
+        title: 'ATHLETIC DEPT. FLAME SHORTS BLACK',
         price: 39.99,
         description: 'Heavyweight 400 GSM cotton shorts with a baggy, oversized fit and sun-dried vintage wash. Finished with sharp flame graphics, SHOTIME Athletic Dept. detailing, and oversized cream drawstrings.',
         sizes: ['S', 'L'],
         images: [
             'images/shortsblackfront.png',
-            'images/shortsblackback.png',
-            'images/shortsgreyfront.png',
-            'images/shortsgreyback.png'
+            'images/shortsblackback.png'
         ],
-        colors: [
-            { name: 'Black', hex: '#1a1a1a' },
-            { name: 'Grey', hex: '#9e9e9e' }
-        ]
+        colors: []
     },
     {
         id: 7,
@@ -88,6 +83,18 @@ const products = [
         images: [
             'images/blacktopfrontshortsleeve.png',
             'images/blacktopbackshortsleeve.png'
+        ],
+        colors: []
+    },
+    {
+        id: 8,
+        title: 'ATHLETIC DEPT. FLAME SHORTS GREY',
+        price: 39.99,
+        description: 'Heavyweight 400 GSM cotton shorts with a baggy, oversized fit and sun-dried vintage wash. Finished with sharp flame graphics, SHOTIME Athletic Dept. detailing, and oversized cream drawstrings.',
+        sizes: ['S', 'M', 'L', 'XL'],
+        images: [
+            'images/shortsgreyfront.png',
+            'images/shortsgreyback.png'
         ],
         colors: []
     }

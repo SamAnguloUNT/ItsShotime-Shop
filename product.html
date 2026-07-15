@@ -645,15 +645,19 @@
                 <div class="product-details">
                     <div class="detail-item">
                         <h4>Material</h4>
-                        <p>100% premium cotton</p>
+                        <p>100% Premium Materials</p>
                     </div>
                     <div class="detail-item">
                         <h4>Care Instructions</h4>
-                        <p>Machine wash cold, tumble dry low. Do not bleach.</p>
+                        <p>Wash cold, inside out, with mild detergent. Hang or lay flat to dry for best results. Avoid high heat, as it may cause shrinkage or affect the fabrics finish.</p>
                     </div>
                     <div class="detail-item">
                         <h4>Shipping</h4>
-                        <p>Free shipping on orders over $50. Standard delivery 3-5 business days.</p>
+                        <p>Free shipping on orders over $55. Standard delivery 3-5 business days.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Sizing</h4>
+                        <p>All SHOTIME products are designed with an intentionally oversized fit. Order your usual size for the intended relaxed silhouette, or size down for a more fitted look.</p>
                     </div>
                 </div>
             </div>
@@ -684,6 +688,16 @@
 
     <script src="products-data.js"></script>
     <script>
+        // Auto-clean stale cart items
+    function cleanStaleCart() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const validIds = products.map(p => p.id);
+        const cleaned = cart.filter(item => validIds.includes(item.product.id));
+        if (cleaned.length !== cart.length) {
+            localStorage.setItem('cart', JSON.stringify(cleaned));
+        }
+    }
+    cleanStaleCart();
         let currentProduct = null;
         let selectedColor = null;
         let selectedSize = null;
