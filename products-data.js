@@ -10,7 +10,11 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/bulldogteefront.png',
-            'images/bulldogteeback.png'
+            'images/bulldogteeback.png',
+            'images/BulldogTee1.png',
+            'images/BulldogTee2.png',
+            'images/BulldogTee3.png',
+            'images/BulldogTee4.png'
         ],
         colors: []
     },
@@ -22,7 +26,11 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/bulldogjerseyfront.png',
-            'images/bulldogjerseyback.png'
+            'images/bulldogjerseyback.png',
+            'images/Jersey1.png',
+            'images/Jersey2.png',
+            'images/Jersey3.png',
+            'images/Jersey4.png'
         ],
         colors: []
     },
@@ -34,7 +42,11 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/camofront.png',
-            'images/camoback.png'
+            'images/camoback.png',
+            'images/Camo1.png',
+            'images/Camo2.png',
+            'images/Camo3.png',
+            'images/Camo4.png'
         ],
         colors: []
     },
@@ -46,7 +58,13 @@ const products = [
         sizes: ['S', 'L', 'XL'],
         images: [
             'images/blacktopfront.png',
-            'images/blacktopback.png'
+            'images/blacktopback.png',
+            'images/BlacktopSleeved1.png',
+            'images/BlacktopSleeved2.png',
+            'images/BlacktopSleeved3.png',
+            'images/BlacktopSleeved4.png',
+            'images/BlacktopSleeved5.png',
+            'images/BlacktopSleeved6.png'
         ],
         colors: []
     },
@@ -58,7 +76,11 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/wwfront.png',
-            'images/wwback.png'
+            'images/wwback.png',
+            'images/WWTee1.png',
+            'images/WWTee2.png',
+            'images/WWTee3.png',
+            'images/WWTee4.png'
         ],
         colors: []
     },
@@ -70,7 +92,10 @@ const products = [
         sizes: ['S', 'L'],
         images: [
             'images/shortsblackfront.png',
-            'images/shortsblackback.png'
+            'images/shortsblackback.png',
+            'images/Shorts1.png',  
+            'images/Shorts2.png',
+            'images/Shorts3.png'
         ],
         colors: []
     },
@@ -82,7 +107,13 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/blacktopfrontshortsleeve.png',
-            'images/blacktopbackshortsleeve.png'
+            'images/blacktopbackshortsleeve.png',
+            'images/BlacktopTee1.png',
+            'images/BlacktopTee2.png',
+            'images/BlacktopTee3.png',
+            'images/BlacktopTee4.png',
+            'images/BlacktopTee5.png',
+            'images/BlacktopTee6.png'
         ],
         colors: []
     },
@@ -94,7 +125,10 @@ const products = [
         sizes: ['S', 'M', 'L', 'XL'],
         images: [
             'images/shortsgreyfront.png',
-            'images/shortsgreyback.png'
+            'images/shortsgreyback.png',
+            'images/Shorts4.png',
+            'images/Shorts5.png',
+            'images/Shorts6.png'
         ],
         colors: []
     }
