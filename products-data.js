@@ -14,7 +14,8 @@ const products = [
             'images/BulldogTee1.png',
             'images/BulldogTee2.png',
             'images/BulldogTee3.png',
-            'images/BulldogTee4.png'
+            'images/BulldogTee4.png',
+            'images/BulldogTeeSize.png'
         ],
         colors: []
     },
@@ -30,7 +31,8 @@ const products = [
             'images/Jersey1.png',
             'images/Jersey2.png',
             'images/Jersey3.png',
-            'images/Jersey4.png'
+            'images/Jersey4.png',
+            'images/BulldogMeshJerseySize.png'
         ],
         colors: []
     },
@@ -46,7 +48,8 @@ const products = [
             'images/Camo1.png',
             'images/Camo2.png',
             'images/Camo3.png',
-            'images/Camo4.png'
+            'images/Camo4.png',
+            'images/HiddenSeasonLayeredSize.png'
         ],
         colors: []
     },
@@ -64,7 +67,8 @@ const products = [
             'images/BlacktopSleeved3.png',
             'images/BlacktopSleeved4.png',
             'images/BlacktopSleeved5.png',
-            'images/BlacktopSleeved6.png'
+            'images/BlacktopSleeved6.png',
+            'images/BlacktopLayeredSize.png'
         ],
         colors: []
     },
@@ -80,7 +84,8 @@ const products = [
             'images/WWTee1.png',
             'images/WWTee2.png',
             'images/WWTee3.png',
-            'images/WWTee4.png'
+            'images/WWTee4.png',
+            'images/WorldWideTeeSize.png'
         ],
         colors: []
     },
@@ -95,7 +100,8 @@ const products = [
             'images/shortsblackback.png',
             'images/Shorts1.png',  
             'images/Shorts2.png',
-            'images/Shorts3.png'
+            'images/Shorts3.png',
+            'images/ShortsBlackSize.png'
         ],
         colors: []
     },
@@ -113,7 +119,8 @@ const products = [
             'images/BlacktopTee3.png',
             'images/BlacktopTee4.png',
             'images/BlacktopTee5.png',
-            'images/BlacktopTee6.png'
+            'images/BlacktopTee6.png',
+            'images/BlacktopTeeSize.png'
         ],
         colors: []
     },
@@ -128,7 +135,8 @@ const products = [
             'images/shortsgreyback.png',
             'images/Shorts4.png',
             'images/Shorts5.png',
-            'images/Shorts6.png'
+            'images/Shorts6.png',
+            'images/ShortsGreySize.png'
         ],
         colors: []
     }
