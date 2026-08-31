@@ -761,6 +761,8 @@
             // Create thumbnails for all media
             thumbnailGrid.innerHTML = currentProduct.images.map((media, index) => {
                 const isVideo = media.toLowerCase().endsWith('.mp4');
+                const isSizeChart = /size/i.test(media);
+                const fitStyle = isSizeChart ? 'object-fit: contain; background: white;' : 'object-fit: cover;';
                 return `
                     <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeMainImage('${media}', ${index})">
                         ${isVideo 
@@ -770,7 +772,7 @@
                                        <div style="width: 0; height: 0; border-left: 12px solid black; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px;"></div>
                                    </div>
                                </div>`
-                            : `<img src="${media}" alt="${currentProduct.title}" style="width: 100%; height: 100%; object-fit: cover;">`
+                            : `<img src="${media}" alt="${currentProduct.title}" style="width: 100%; height: 100%; ${fitStyle}">`
                         }
                     </div>
                 `;
@@ -781,6 +783,8 @@
         function loadMainMedia(mediaSrc) {
             const mainImageContainer = document.getElementById('mainImageContainer');
             const isVideo = mediaSrc.toLowerCase().endsWith('.mp4');
+            const isSizeChart = /size/i.test(mediaSrc);
+            const fitStyle = isSizeChart ? 'object-fit: contain; background: white;' : 'object-fit: cover;';
 
             if (isVideo) {
                 mainImageContainer.innerHTML = `
@@ -790,7 +794,7 @@
                     </video>
                 `;
             } else {
-                mainImageContainer.innerHTML = `<img src="${mediaSrc}" alt="${currentProduct.title}" style="width: 100%; height: 100%; object-fit: cover;">`;
+                mainImageContainer.innerHTML = `<img src="${mediaSrc}" alt="${currentProduct.title}" style="width: 100%; height: 100%; ${fitStyle}">`;
             }
         }
 
